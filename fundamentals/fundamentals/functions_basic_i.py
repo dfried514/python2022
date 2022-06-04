@@ -2,48 +2,48 @@
 def number_of_food_groups():
     return 5
 print(number_of_food_groups())
-
+# logs 5
 
 #2
-def number_of_military_branches():
-    return 5
-print(number_of_days_in_a_week_silicon_or_triangle_sides() + number_of_military_branches())
-
-
-#3
+# def number_of_military_branches():
+#     return 5
+# print(number_of_days_in_a_week_silicon_or_triangle_sides() + number_of_military_branches())
+# NameError
+#
+# #3
 def number_of_books_on_hold():
     return 5
     return 10
 print(number_of_books_on_hold())
-
-
-#4
+# logs 5
+#
+# #4
 def number_of_fingers():
     return 5
     print(10)
 print(number_of_fingers())
-
-
-#5
+# logs 5
+#
+# #5
 def number_of_great_lakes():
     print(5)
 x = number_of_great_lakes()
 print(x)
-
-
-#6
-def add(b,c):
-    print(b+c)
-print(add(1,2) + add(2,3))
-
-
-#7
+# logs 5, logs None
+#
+# #6
+# def add(b,c):
+#     print(b+c)
+# print(add(1,2) + add(2,3))
+# logs 3, logs 5, TypeError -- NoneType + NoneType
+#
+# #7
 def concatenate(b,c):
     return str(b)+str(c)
 print(concatenate(2,5))
-
-
-#8
+# logs 25
+#
+# #8
 def number_of_oceans_or_fingers_or_continents():
     b = 100
     print(b)
@@ -53,9 +53,9 @@ def number_of_oceans_or_fingers_or_continents():
         return 10
     return 7
 print(number_of_oceans_or_fingers_or_continents())
-
-
-#9
+# logs 100, logs 10
+#
+# #9
 def number_of_days_in_a_week_silicon_or_triangle_sides(b,c):
     if b<c:
         return 7
@@ -65,16 +65,16 @@ def number_of_days_in_a_week_silicon_or_triangle_sides(b,c):
 print(number_of_days_in_a_week_silicon_or_triangle_sides(2,3))
 print(number_of_days_in_a_week_silicon_or_triangle_sides(5,3))
 print(number_of_days_in_a_week_silicon_or_triangle_sides(2,3) + number_of_days_in_a_week_silicon_or_triangle_sides(5,3))
-
-
-#10
+# logs 7, logs 14, logs 21
+#
+# #10
 def addition(b,c):
     return b+c
     return 10
 print(addition(3,5))
-
-
-#11
+# logs 8
+#
+# #11
 b = 500
 print(b)
 def foobar():
@@ -83,9 +83,12 @@ def foobar():
 print(b)
 foobar()
 print(b)
-
-
-#12
+# logs 500
+# logs 500
+# logs 300
+# logs 500
+#
+# #12
 b = 500
 print(b)
 def foobar():
@@ -95,9 +98,12 @@ def foobar():
 print(b)
 foobar()
 print(b)
-
-
-#13
+# logs 500
+# logs 500
+# logs 300
+# logs 500
+#
+# #13
 b = 500
 print(b)
 def foobar():
@@ -107,9 +113,12 @@ def foobar():
 print(b)
 b=foobar()
 print(b)
-
-
-#14
+# logs 500
+# logs 500
+# logs 300
+# logs 300
+#
+# #14
 def foo():
     print(1)
     bar()
@@ -117,9 +126,11 @@ def foo():
 def bar():
     print(3)
 foo()
-
-
-#15
+# logs 1
+# logs 3
+# logs 2
+#
+# #15
 def foo():
     print(1)
     x = bar()
@@ -130,3 +141,7 @@ def bar():
     return 5
 y = foo()
 print(y)
+# logs 1
+# logs 3
+# logs 5
+# logs 10
