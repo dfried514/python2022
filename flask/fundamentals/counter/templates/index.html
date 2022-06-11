@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Counter</title>
+    <link rel="stylesheet" type="text/css"
+  </head>
+<body>
+    <h1>Counter</h1>
+    <h3>Number of Visits: {{session['visits']}}</h3>
+    <h3>Count: {{session['count']}}</h3>
+    <form action='/count' method='POST'>
+        <input type="submit" name="plus2" value="+2" />
+        <input type="submit" name="reset" value="Reset Counter" />
+    </form>
+    <br />
+    <form action='/increment' method='post'>
+        <label for="incrementBy">Increment Counter By:</label>
+        <input type="text" id="incrementBy" name="incrementBy">
+    </form>
+    <br />
+    <form action='/destroy_session'>
+        <input type='submit' name='destroy' value="Destroy Session" />
+    </form>
+</body>
+</html>
