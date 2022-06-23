@@ -1,0 +1,8 @@
+pymysql.err.OperationalError: (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+
+-- incorrect password
+
+TypeError: 'bool' object is not iterable
+
+-- query not 'mogrified'
+

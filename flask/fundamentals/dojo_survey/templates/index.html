@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Dojo Survey</title>
+    <link rel="stylesheet" type="text/css"
+      href= "{{ url_for('static',filename='styles/style.css') }}">
+  </head>
+  <body>
+    <form action="/process" method="post">
+      <fieldset>
+        <legend>Dojo Survey</legend>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br><br>
+        
+        <label for="location">Dojo Location:</label>
+        <select name="location" id="location">
+            <option value="chicago">Chicago</option>
+            <option value="seattle">Seattle</option>
+            <option value="online">Online</option>
+            <option value="burbank">Burbank</option>
+            <option value="sanjose">San Jose</option>
+        </select>
+        <br>
+        <label for="language">Favorite Language:</label>
+        <select name="language" id="language">
+            <option value="html">HTML</option>
+            <option value="css">CSS</option>
+            <option value="python">Python</option>
+            <option value="javascript">JavaScript</option>
+            <option value="java">Java</option>
+        </select>
+        <br>
+        <label for="preferred_role">Preferred Role:</label>
+        <input type="radio" id="frontend" name="preferred_role" value="frontend">
+        <label for="frontend">Fontend</label>
+        <input type="radio" id="backend" name="preferred_role" value="backend">
+        <label for="backend">Backend</label>
+        <input type="radio" id="full_stack" name="preferred_role" value="full_stack">
+        <label for="full_stack">Full Stack</label><br>
+        
+        <label for="operating_system">Operating System Used:</label>
+        <input type="checkbox" name="operating_system" id="os" value="mac">
+        <label for="mac">Mac</label>
+        <input type="checkbox" name="operating_system" id="os" value="pc">
+        <label for="pc">PC</label>
+        <input type="checkbox" name="operating_system" id="os" value="linux">
+        <label for="linux">Linux</label><br>
+        
+        <label for="comments">Comments:</label><br>
+        <textarea id="comments" name="comments" rows="6" cols="50"></textarea><br>
+        <input type="submit" value="Submit">
+      </fieldset>
+    </form>
+  </body>
+</html>

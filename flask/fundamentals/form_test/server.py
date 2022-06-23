@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, session
+from flask import Flask, render_template, request, redirect, session, url_for
 
 app = Flask(__name__)
 app.secret_key = 'keep it secret, keep it safe' # set a secret key for security purposes
@@ -10,11 +10,12 @@ def index():
 
 @app.route('/users', methods=['POST'])
 def create_user():
-    print("Got Post Info")
+    print("Got Post Info:", request.form)
+    print('args:', request.args)
     # Here we add two properties to session to store the name and email
     session['username'] = request.form['name']
     session['useremail'] = request.form['email']
-    return redirect('/show')
+    return redirect(url_for('show_user'))
 
 @app.route('/show')
 def show_user():

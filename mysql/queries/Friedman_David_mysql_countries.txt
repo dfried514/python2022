@@ -1,0 +1,63 @@
+use world;
+
+-- 1. all countries that speak Slovene
+SELECT countries.name, languages.language, languages.percentage
+FROM countries
+JOIN languages
+ON languages.country_id = countries.id
+WHERE languages.language = 'Slovene'
+ORDER BY languages.percentage DESC;
+
+-- 2. total number of cities for each country
+SELECT countries.name, COUNT(cities.id) AS cities_count
+FROM countries
+JOIN cities
+ON cities.country_id = countries.id
+GROUP BY countries.name
+ORDER BY cities_count DESC;
+
+-- 3. all cities in Mexico with a population greater than 500,000
+SELECT countries.name AS country, cities.name AS city, cities.population 
+FROM cities
+JOIN countries
+ON countries.id = cities.country_id 
+WHERE countries.name = 'Mexico'
+AND cities.population > 500000
+ORDER BY cities.population DESC;
+
+-- 4. all languages in each country with a percentage greater than 89%
+SELECT countries.name AS country, languages.language, languages.percentage
+FROM countries
+JOIN languages 
+ON languages.country_id = countries.id
+WHERE languages.percentage > 89
+ORDER BY languages.percentage DESC;
+
+-- 5. all countries with surface area below 501 and population greater than 100000
+SELECT countries.name AS country, countries.surface_area, countries.population
+FROM countries
+WHERE countries.surface_area < 501
+AND countries.population > 100000;
+
+-- 6. all countries with constitutional monarchy, capital greater than 200, and life expectancy greater than 75 yrs
+SELECT name AS country, government_form, capital, life_expectancy
+FROM countries
+WHERE government_form = 'Constitutional Monarchy'
+AND capital > 200
+AND life_expectancy > 75;
+
+-- 7. all cities of Argentina inside Buenos Aires district, with population greater than 500,000
+SELECT countries.name AS country, cities.name AS city, cities.district, cities.population
+FROM countries
+JOIN cities 
+ON cities.country_id = countries.id
+WHERE countries.name = 'Argentina'
+AND cities.district = 'Buenos Aires'
+AND cities.population > 500000;
+
+-- 8. number of countries in each region
+SELECT countries.region, COUNT(countries.region) AS num_countries
+FROM countries
+GROUP BY countries.region
+ORDER BY num_countries DESC; 
+

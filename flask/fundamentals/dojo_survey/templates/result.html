@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Result</title>
+    <link rel="stylesheet" type="text/css"
+      href= "{{ url_for('static',filename='styles/style.css') }}">
+  </head>
+  <body>
+      <h2>{{session['name']}}</h2>
+      <h3>Location: {{session['location']}}</h3>
+      <h3>Favorite Language: {{session['language']}}</h3>
+      <h3>Preferred Role: {{session['preferred_role']}}</h3>
+      <h3>Operation Systems Used</h3>
+      <ul>
+        {% for os in session['operating_system'] %}
+          <li><em>{{os}}</em></li>
+        {% endfor %}
+      </ul>
+      <h3>Comments: {{session['comments']}}</h3>
+      <h4><a href="{{url_for('index')}}"></h4>
+  </body>
+</html>
