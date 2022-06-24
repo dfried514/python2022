@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatable" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Email Addresses Entered</title>
+    </head>
+    <body>
+        <h1>Email Addresses Entered</h1>
+        {% with messages = get_flashed_messages() %} <!-- declare a variable called messages -->
+            {% if messages %}  <!-- check if there are any messages -->
+                {% for message in messages %}  <!-- loop through the messages -->
+                    <p>{{message}}</p>  <!-- display each message in a paragraph tag -->
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <ul>
+            {% for email in emails %}
+                <li><strong>{{email.address}}</strong>
+                    <span>  {{email.created_at}}  </span>
+                    <a href="/delete_email/{{email.id}}">  Delete  </a>
+                </li>
+            {% endfor %}
+        </ul>
+        <a href="/">Home</a>
+    </body>
+</html>
