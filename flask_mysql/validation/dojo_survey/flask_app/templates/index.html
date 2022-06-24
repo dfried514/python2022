@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatable" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dojo Survey</title>
+    </head>
+    <body>
+        <h1>Dojo Survey</h1><br>
+        {% with messages = get_flashed_messages() %} <!-- declare a variable called messages -->
+            {% if messages %}  <!-- check if there are any messages -->
+                {% for message in messages %}  <!-- loop through the messages -->
+                    <p>{{message}}</p>  <!-- display each message in a paragraph tag -->
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <form action="/create_dojo" method="POST">
+            <label for="name">Your Name:  </label><input type="text" name="name"><br><br>
+            <label for="location">Dojo Location:  </label>
+            <select name="location">
+                <option value="San Jose">San Jose</option>
+                <option value="Seattle">Seattle</option>
+                <option value="Chicago">Chicago</option>
+                <option value="Online">Online</option>
+                <option value="Bakersfield">Bakersfield</option>
+                <option value="NY">NY</option>
+            </select><br><br>
+            <label for="language">Favorite Language:  </label>
+            <select name="language">
+                <option value="Python">Python</option>
+                <option value="JavaScript">JavaScript</option>
+                <option value="C##">C##</option>
+                <option value="Java">Java</option>
+                <option value="HTML">HTML</option>
+                <option value="CSS">CSS</option>
+                <option value="C">C</option>
+            </select><br><br>
+            <label for="comment">Comment (optional):</label><br>
+            <textarea name="comment" rows="4" cols="50"></textarea><br>
+            <input type="submit" value="Submit">
+        </form><br>
+    </body>
+</html>
