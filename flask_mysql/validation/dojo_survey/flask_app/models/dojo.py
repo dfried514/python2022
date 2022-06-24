@@ -33,10 +33,19 @@ class Dojo:
         if len(dojo['name']) < 3:
             flash("Name must be at least 3 characters")
             is_valid = False
+        if dojo['location'] == 'No Choice':
+            flash("Must choose a dojo location")
+            is_valid = False
         if len(dojo['location']) < 3:
             flash("Location must be at least 3 characters")
             is_valid = False
+        if dojo['language'] == 'No Choice':
+            flash("Must choose a favorite language")
+            is_valid = False
         if len(dojo['language']) < 2:
             flash("Language must be at least 2 characters")
+            is_valid = False
+        if len(dojo['comment']) < 3:
+            flash("Comment must be at least 3 characters")
             is_valid = False
         return is_valid
