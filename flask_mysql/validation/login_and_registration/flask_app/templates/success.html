@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatable" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Logged In</title>
+    </head>
+    <body>
+        <h1>Welcome, {{session['first_name']}}</h1>
+        <form action="/logout" method="GET">
+            <input type='submit' value='Logout'>
+        </form>
+        <a href="/">Home</a>
+    </body>
+</html>

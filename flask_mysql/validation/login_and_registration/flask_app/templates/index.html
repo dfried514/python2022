@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatable" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Email Validation</title>
+    </head>
+    <body>
+        <h1>Register</h1>
+        {% with messages = get_flashed_messages() %} <!-- declare a variable called messages -->
+            {% if messages %}  <!-- check if there are any messages -->
+                {% for message in messages %}  <!-- loop through the messages -->
+                    <p>{{message}}</p>  <!-- display each message in a paragraph tag -->
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <form action='/register' method='POST'>
+            <label for='first_name'>First Name:  </label><input type='text' name='first_name'><br><br>
+            <label for='last_name'>Last Name:  </label><input type='text' name='last_name'><br><br>
+            <label for='email'>Email:  </label><input type='text' name='email'><br><br>
+            <label for='dob'>Date of Birth:  </label><input type='date' name='dob'><br><br>
+            <label for='os'>Operating System:  </label>
+                <input type="radio" name="os" value="Windows" /><label for="Windows"> Windows</label>
+                <input type="radio" name="os" value="IOS" /><label for="IOS"> IOS</label>
+                <input type="radio" name="os" value="Linux" /><label for="Linux"> Linux</label><br><br>
+            <label for="location">Location:  </label>
+            <select name="location">
+                <option value="No Choice">-- Select Location --</option>
+                <option value="Chicago">Chicago</option>
+                <option value="San Jose">San Jose</option>
+                <option value="Online">Online</option>
+                <option value="Bakersfield">Bakersfield</option>
+                <option value="Seattle">Seattle</option>
+            </select><br><br>
+            <label for='password'>Password:  </label><input type='password' name='password'><br><br>
+            <label for='password2'>Confirm Password:  </label><input type='password' name='password2'><br><br>
+            <input type='submit' value='Register'>
+        </form><br><br>
+        <h1>Login</h1>
+        <form action='/login' method='POST'>
+            <label for='email'>Email:  </label><input type='text' name='email'><br><br>
+            <label for='password'>Password:  </label><input type='password' name='password'><br><br>
+            <input type='submit' value='Login'>
+        </form>
+    </body>
+</html>
