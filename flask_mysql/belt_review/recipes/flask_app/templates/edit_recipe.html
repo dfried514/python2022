@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatable" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Recipe</title>
+    </head>
+    <body>
+        <h1>{{title}}</h1>
+        {% with messages = get_flashed_messages() %} <!-- declare a variable called messages -->
+            {% if messages %}  <!-- check if there are any messages -->
+                {% for message in messages %}  <!-- loop through the messages -->
+                    <p>{{message}}</p>  <!-- display each message in a paragraph tag -->
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <form action='/recipes/{{form_function}}' method='POST'>
+            <label for='name'>Name:  </label><input type='text' name='name' value={{recipe.name}}><br><br>
+            <label for='description'>Description:</label><br>
+            <textarea name='description' rows='4' cols='50'>{{recipe.description}}</textarea><br><br>
+            <label for='instructions'>Instructions:</label><br>
+            <textarea name='instructions' rows='4' cols='50'>{{recipe.instructions}}</textarea><br><br>
+            <label for="date_made">Date Made On:   </label>
+            <input type="date" name="date_made" value={{recipe.date_made}}><br><br>
+            <label for="under_30_minutes">Under 30 Minutes?   </label>
+            <input type="radio" name="under_30_minutes" value="Yes" 
+                {% if recipe.under_30_minutes == 'Yes' %} checked {% endif %}>
+            <label for="Yes"> Yes </label>
+            <input type="radio" name="under_30_minutes" value="No"
+                {% if recipe.under_30_minutes == 'No' %} checked {% endif %}>
+            <label for="No"> No </label><br><br>
+            <input type="hidden" name="user_id" value={{session['user_id']}}>
+            <input type="hidden" name="id" value={{recipe.id}}>
+            <input type='submit' value='{{form_function|capitalize}}'>
+        </form><br>
+        <a href='/users/dashboard'>Dashboard</a><br><br>
+        <a href='/users/logout'>Logout</a>
+    </body>
+</html>
