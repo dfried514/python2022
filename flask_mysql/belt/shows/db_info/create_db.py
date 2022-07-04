@@ -1,7 +1,12 @@
 # a cursor is the object we use to interact with the database
 import pymysql.cursors
 
-connection = pymysql.connect(host= 'database-3.cv3bbotq8wvi.us-west-1.rds.amazonaws.com', user= 'root', password= 'rootroot')
+# host = 'database-3.cv3bbotq8wvi.us-west-1.rds.amazonaws.com'
+host = 'aatygnn0kp0p44.c9hdwzzg0yse.us-west-2.rds.amazonaws.com'
+user = 'root'
+password = 'rootroot'
+
+connection = pymysql.connect(host = host, user = user, password = password)
 
 cursor = connection.cursor()
 
@@ -43,3 +48,5 @@ for query in queries_finalize:
     cursor.execute(query)
     cursor.connection.commit()
 
+cursor.close()
+connection.close()

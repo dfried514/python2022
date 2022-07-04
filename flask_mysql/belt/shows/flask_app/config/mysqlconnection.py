@@ -4,6 +4,10 @@ import pymysql.cursors
 # this class will give us an instance of a connection to our database
 class MySQLConnection:
     def __init__(self, db):
+        # host = 'database-3.cv3bbotq8wvi.us-west-1.rds.amazonaws.com'
+        host = 'aatygnn0kp0p44.c9hdwzzg0yse.us-west-2.rds.amazonaws.com'
+        user = 'root'
+        password = 'rootroot'
         # change the user and password as needed
         # connection = pymysql.connect(host = 'localhost',
         #                             user = 'root', 
@@ -12,7 +16,7 @@ class MySQLConnection:
         #                             charset = 'utf8mb4',
         #                             cursorclass = pymysql.cursors.DictCursor,
         #                             autocommit = True)
-        connection = pymysql.connect(host= 'database-3.cv3bbotq8wvi.us-west-1.rds.amazonaws.com', user = 'root', password = 'rootroot', charset = 'utf8mb4', cursorclass = pymysql.cursors.DictCursor, autocommit = True)
+        connection = pymysql.connect(host = host, user = user, password = password, charset = 'utf8mb4', cursorclass = pymysql.cursors.DictCursor, autocommit = True)
         # establish the connection to the database
         self.connection = connection
     # the method to query the database

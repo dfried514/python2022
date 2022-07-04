@@ -1,8 +1,9 @@
-from flask_app import app
+from flask_app import application
 from flask import render_template,redirect,request,session,flash, url_for
 from flask_app.models.user import User
 from flask_app.models.show import Show
 from flask_bcrypt import Bcrypt
+app = application
 bcrypt = Bcrypt(app)     # we are creating an object called bcrypt, 
                             # which is made by invoking the function Bcrypt with our app as an argumen
 
